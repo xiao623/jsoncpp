@@ -2818,9 +2818,9 @@ JSONTEST_FIXTURE_LOCAL(ReaderTest, strictModeParseNumber) {
 
 JSONTEST_FIXTURE_LOCAL(ReaderTest, parseChineseWithOneError) {
   char doc[] = "\u0189"; // a
-  printf("len = %zu\n", std::strlen(doc));
-  printf("doc = %s\n", doc);
-  for (int i = 0; i < std::strlen(doc); i++) {
+  printf("len = %zu\n", std::lstrlen(doc));
+  printf("doc = %ws\n", doc);
+  for (int i = 0; i < std::lstrlen(doc); i++) {
     printf("doc[i] = %d\n", doc[i]);
   }
   // \u4f50\u85e4 佐藤
