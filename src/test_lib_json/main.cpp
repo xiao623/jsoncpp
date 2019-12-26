@@ -2659,9 +2659,9 @@ struct ReaderTest : JsonTest::TestCase {
     for (size_t i = 0; i < actual.size(); ++i) {
       const auto& a = actual[i];
       const auto& e = expected[i];
-      JSONTEST_ASSERT_EQUAL(a.offset_start, e.offset_start) << i;
-      JSONTEST_ASSERT_EQUAL(a.offset_limit, e.offset_limit) << i;
-      JSONTEST_ASSERT_EQUAL(a.message, e.message) << i;
+      JSONTEST_ASSERT_EQUAL(e.offset_start, a.offset_start) << i;
+      JSONTEST_ASSERT_EQUAL(e.offset_limit, a.offset_limit) << i;
+      JSONTEST_ASSERT_EQUAL(e.message, a.message) << i;
     }
   }
 
@@ -2682,7 +2682,7 @@ struct ReaderTest : JsonTest::TestCase {
                   const std::vector<Json::Reader::StructuredError>& structured,
                   const std::string& formatted) {
     checkParse(input, structured);
-    JSONTEST_ASSERT_EQUAL(reader->getFormattedErrorMessages(), formatted);
+    JSONTEST_ASSERT_EQUAL(formatted, reader->getFormattedErrorMessages());
   }
 
   std::unique_ptr<Json::Reader> reader{new Json::Reader()};
