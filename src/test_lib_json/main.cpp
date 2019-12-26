@@ -2817,11 +2817,11 @@ JSONTEST_FIXTURE_LOCAL(ReaderTest, strictModeParseNumber) {
 }
 
 JSONTEST_FIXTURE_LOCAL(ReaderTest, parseChineseWithOneError) {
-  char doc[] = "佐藤";
+  char doc[] = "\u0061"; // a
   printf("len = %d\n", std::strlen(doc));
   printf("doc = %s\n", doc);
   for (int i = 0; i < std::strlen(doc); i++) {
-	printf("doc[i] = %d\n", doc[i]);
+    printf("doc[i] = %d\n", doc[i]);
   }
   // \u4f50\u85e4 佐藤
   checkParse(R"({ "pr)"
