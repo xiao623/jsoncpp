@@ -2817,6 +2817,15 @@ JSONTEST_FIXTURE_LOCAL(ReaderTest, strictModeParseNumber) {
 }
 
 JSONTEST_FIXTURE_LOCAL(ReaderTest, parseChineseWithOneError) {
+  char doc[] = "\u4f50\u85e4";
+  printf("%d", std::strlen(doc));
+  printf("\n");
+  printf(doc);
+  printf("\n");
+  for (int i = 0;i<std::strlen(doc);i++) {
+	  printf("%d", doc[i]);
+	  printf("\n");
+  }
   // \u4f50\u85e4 佐藤
   checkParse(R"({ "pr)"
              "\u4f50\u85e4"
