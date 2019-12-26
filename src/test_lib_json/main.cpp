@@ -2818,13 +2818,10 @@ JSONTEST_FIXTURE_LOCAL(ReaderTest, strictModeParseNumber) {
 
 JSONTEST_FIXTURE_LOCAL(ReaderTest, parseChineseWithOneError) {
   char doc[] = "\u4f50\u85e4";
-  printf("%d", std::strlen(doc));
-  printf("\n");
-  printf(doc);
-  printf("\n");
+  printf("len = %d\n", std::strlen(doc));  
+  printf("doc = %s\n", doc);  
   for (int i = 0;i<std::strlen(doc);i++) {
-	  printf("%d", doc[i]);
-	  printf("\n");
+	  printf("doc[i] = %d\n", doc[i]);	  
   }
   // \u4f50\u85e4 佐藤
   checkParse(R"({ "pr)"
