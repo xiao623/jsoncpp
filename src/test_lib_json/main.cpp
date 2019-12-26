@@ -2817,12 +2817,12 @@ JSONTEST_FIXTURE_LOCAL(ReaderTest, strictModeParseNumber) {
 }
 
 JSONTEST_FIXTURE_LOCAL(ReaderTest, parseChineseWithOneError) {
-  auto doc = "\u00ff"; // a
-  printf("len = %zu\n", std::strlen(doc));
+  std::string doc = "\u0189"; // a
+  //printf("len = %zu\n", std::strlen(doc));
   printf("doc = %s\n", doc);
-  for (int i = 0; i < std::strlen(doc); i++) {
-    printf("doc[i] = %d\n", doc[i]);
-  }
+  //for (int i = 0; i < std::strlen(doc); i++) {
+  //  printf("doc[i] = %d\n", doc[i]);
+  //}
   // \u4f50\u85e4 佐藤
   checkParse(R"({ "pr)"
              "\u4f50\u85e4"
