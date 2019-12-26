@@ -2817,6 +2817,8 @@ JSONTEST_FIXTURE_LOCAL(ReaderTest, strictModeParseNumber) {
 }
 
 JSONTEST_FIXTURE_LOCAL(ReaderTest, parseChineseWithOneError) {
+  char const doc[] = u8"\u4f50\u85e4";
+  printf(doc);
   // \u4f50\u85e4 佐藤
   checkParse(R"({ "pr)"
              u8"\u4f50\u85e4" // 佐藤
